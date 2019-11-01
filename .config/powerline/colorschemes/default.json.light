@@ -1,0 +1,22 @@
+{
+  "groups": {
+    "cwd":                       { "fg": "gray3", "bg": "gray9", "attrs": [] },
+    "cwd:current_folder":        { "fg": "gray3", "bg": "gray9", "attrs": [] },
+    "cwd:divider":               { "fg": "gray3", "bg": "gray9", "attrs": [] },
+    "virtualenv":                { "fg": "white", "bg": "darkcyan", "attrs": [] },
+    "gitstatus":                 { "fg": "gray2",           "bg": "gray10", "attrs": [] },
+    "gitstatus_branch":          { "fg": "gray2",           "bg": "gray10", "attrs": [] },
+    "gitstatus_branch_clean":    { "fg": "darkgreen",           "bg": "gray10", "attrs": [] },
+    "gitstatus_branch_dirty":    { "fg": "gray2",           "bg": "gray10", "attrs": [] },
+    "gitstatus_branch_detached": { "fg": "darkpurple",    "bg": "gray10", "attrs": [] },
+    "gitstatus_tag":             { "fg": "darkcyan",        "bg": "gray10", "attrs": [] },
+    "gitstatus_behind":          { "fg": "gray2",          "bg": "gray10", "attrs": [] },
+    "gitstatus_ahead":           { "fg": "gray2",          "bg": "gray10", "attrs": [] },
+    "gitstatus_staged":          { "fg": "darkgreen",           "bg": "gray10", "attrs": [] },
+    "gitstatus_unmerged":        { "fg": "darkred",       "bg": "gray10", "attrs": [] },
+    "gitstatus_changed":         { "fg": "darkorange",    "bg": "gray10", "attrs": [] },
+    "gitstatus_untracked":       { "fg": "mediumorange", "bg": "gray10", "attrs": [] },
+    "gitstatus_stashed":         { "fg": "darkblue",        "bg": "gray10", "attrs": [] },
+    "gitstatus:divider":         { "fg": "gray2",           "bg": "gray10", "attrs": [] }
+  }
+}

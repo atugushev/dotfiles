@@ -33,7 +33,7 @@ export HISTCONTROL=ignoredups
 export PIPENV_VENV_IN_PROJECT="1"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-export PATH="/Users/albert/Projects/bin:$PATH"
+export PATH="/Users/albert/bin:$PATH"
 
 # Console scripts installed by pip3 --user
 export PATH="/Users/albert/Library/Python/3.7/bin:$PATH"

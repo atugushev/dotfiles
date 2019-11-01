@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import ast
+import os
+import sys
+import subprocess
+
+
+def main():
+    # Parse the code from stdin
+    dump_bytes = "\n\n".join(
+        [ast.dump(data) for data in ast.parse(sys.stdin.read()).body]
+    ).encode()
+
+    # Reformat code by black
+    reformatted_bytes = subprocess.check_output(["black", "-", "-q"], input=dump_bytes)
+
+    # Get style depends on current theme
+    style = "tango" if os.environ.get("CURRENT_THEME") == "light" else "solarized-dark"
+
+    # Colorize the output
+    output = subprocess.check_output(
+        ["pygmentize", "-l", "python", "-O", "style={}".format(style)],
+        input=reformatted_bytes,
+    ).decode()
+
+    print(output.rstrip())
+
+
+if __name__ == "__main__":
+    main()

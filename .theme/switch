@@ -1,0 +1,3 @@
+echo -ne "\033]50;SetProfile=$CURRENT_THEME\a"
+echo $CURRENT_THEME > ~/.theme/current
+rm ~/.config/powerline/colorschemes/default.json && cp ~/.config/powerline/colorschemes/default.json.$CURRENT_THEME ~/.config/powerline/colorschemes/default.json

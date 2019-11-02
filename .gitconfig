@@ -1,0 +1,21 @@
+[user]
+	name = Albert Tugushev
+	email = albert@tugushev.ru
+[alias]
+	tree = log --oneline --decorate --all --graph
+	st = status
+	ci = commit
+	co = checkout
+	ss = show
+[core]
+	autocrlf = input
+    attributesfile = ~/.gitattributes
+[push]
+	default = current
+[merge "pofile"]
+    name = custom merge driver for gettext po files
+    driver = git-po-merge %A %O %B
+[pull]
+	default = current
+[diff]
+	noprefix = true

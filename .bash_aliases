@@ -106,7 +106,7 @@ alias i='ipython'
 alias i3='ipython3'
 
 # Tox
-alias devenv='tox --devenv .venv'
+alias devenv='tox -e py37 --devenv .venv && a'
 
 alias gg='git grep'
 complete -f _complete_alias gg

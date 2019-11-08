@@ -129,8 +129,8 @@ alias ii="sed 's/^ *//g' | isort -"
 
 
 # Theme
-alias dark=". ~/.theme/dark"
-alias light=". ~/.theme/light"
+alias dark="echo dark > ~/.theme/current && . ~/.theme/activate.sh"
+alias light="echo light > ~/.theme/current && . ~/.theme/activate.sh"
 
 
 alias qa='pre-commit run --all-files --show-diff-on-failure'

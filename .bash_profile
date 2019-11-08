@@ -1,10 +1,5 @@
-# Auto switch to profile
-theme=$(cat ~/.theme/current||true)
-if [ "$theme" == "light" ]; then
-    . ~/.theme/light
-else
-    . ~/.theme/dark
-fi
+# Activate current theme
+. ~/.theme/activate.sh
 
 # Bash completion
 . /usr/local/share/bash-completion/bash_completion

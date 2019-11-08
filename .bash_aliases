@@ -135,7 +135,7 @@ complete -f _complete_alias gg
 alias devenv='tox -e py37 --devenv .venv && a'
 alias pytest='pytest --tb=native'
 alias tto='pytest -k "not network"'
-alias qa='pre-commit run --all-files --show-diff-on-failure'
+alias qa='pre-commit run --all-files'
 alias pc='qa'
 
 alias tt='pytest --disable-warnings'

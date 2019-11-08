@@ -7,6 +7,8 @@
     ci = commit
     co = checkout
     ss = show
+    dff = diff
+    pss = push
 [core]
     autocrlf = input
     attributesfile = ~/.gitattributes

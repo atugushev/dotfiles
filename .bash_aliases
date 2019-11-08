@@ -142,3 +142,5 @@ alias pc='pre-commit run --all-files'
 alias cfg='/usr/bin/git --git-dir=$HOME/.home/ --work-tree=$HOME'
 
 alias cdtmp='cd $(mktemp -d)'
+
+alias sw='git-switch'

@@ -53,8 +53,4 @@ bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
 
 
-alias p='cdp pip'
-alias pt='cdp pip-tools'
-alias sw='git-switch'
-
 export PATH="/usr/local/opt/node@10/bin:$PATH"

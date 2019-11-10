@@ -1,9 +1,12 @@
-# Default theme is dark
-theme=$(cat ~/.theme/current 2>/dev/null)
-if [ "$theme" == "light" ]; then
-    export CURRENT_THEME=light
+DEFAULT_THEME="dark"
+
+# Get the current theme
+current_theme_filename="$HOME/.theme/current"
+if [ -f $current_theme_filename ] ; then
+    export CURRENT_THEME=$(cat $current_theme_filename)
 else
-    export CURRENT_THEME=dark
+    export CURRENT_THEME=$DEFAULT_THEME
+    echo $CURRENT_THEME > $current_theme_filename
 fi
 
 # Activate theme on iTerm2

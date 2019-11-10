@@ -25,10 +25,10 @@ gh-issue(){
 }
 
 activate(){
-    activate_file=.venv/bin/activate
-    if [ -e "$activate_file" ]; then
-        . $activate_file
-        return
+    if [ -e ".venv/bin/activate" ]; then
+        . .venv/bin/activate
+    elif [ -e ".tox/.venv/bin/activate" ]; then
+        . .tox/.venv/bin/activate
     fi
 }
 

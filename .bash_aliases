@@ -132,7 +132,7 @@ complete -f _complete_alias gg
 #
 # Development
 #
-alias devenv='tox -e py37 --devenv .venv && a'
+alias devenv='tox -e py37 --devenv .tox/.venv && a'
 alias pytest='pytest --tb=native'
 alias tto='pytest -k "not network"'
 alias qa='pre-commit run --all-files'

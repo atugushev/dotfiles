@@ -28,7 +28,7 @@ export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 # My binaries
-export PATH="$HOME/Bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Console scripts installed by pip3 --user
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"

@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+from typing import List
+
+import requests
+from dotenv import load_dotenv
+from requests_oauthlib import OAuth1Session
+
+load_dotenv()
+
+SINCE_ID_FILENAME = "/tmp/twitter-search-since-id.txt"
+
+
+def get_since_id() -> int:
+    try:
+        with open(SINCE_ID_FILENAME) as f:
+            return int(f.read())
+    except Exception as e:
+        print(f"Failed to get since_id: {e}")
+    return 0
+
+
+def write_since_id(since_id: str) -> None:
+    with open(SINCE_ID_FILENAME, "w") as f:
+        f.write(since_id)
+
+
+def main(argv: List[str] = None) -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--query", nargs="?", type=str)
+    parser.add_argument("--count", nargs="?", type=int, default=10)
+    args = parser.parse_args(argv)
+
+    try:
+        auth_twiter_key = os.environ["AUTH_TWITTER_KEY"]
+        auth_twitter_client_secret = os.environ["AUTH_TWITTER_CLIENT_SECRET"]
+        auth_twitter_owner_key = os.environ["AUTH_TWITTER_OWNER_KEY"]
+        auth_twitter_owner_secret = os.environ["AUTH_TWITTER_OWNER_SECRET"]
+    except KeyError as e:
+        print(f"Missing {e} environment variable.")
+        return 1
+
+    since_id = get_since_id()
+
+    twitter = OAuth1Session(
+        auth_twiter_key,
+        client_secret=auth_twitter_client_secret,
+        resource_owner_key=auth_twitter_owner_key,
+        resource_owner_secret=auth_twitter_owner_secret,
+    )
+    url = (
+        "https://api.twitter.com/1.1/search/tweets.json"
+        "?count={count}&include_entities=true&q={query}"
+        "&result_type=recent&since_id={since_id}".format(
+            query=requests.utils.quote(args.query), count=args.count, since_id=since_id
+        )
+    )
+    tweets = twitter.get(url).json()
+
+    if "statuses" not in tweets:
+        print("Bad response from twitter: {}".format(tweets))
+        return 1
+    if not tweets["statuses"]:
+        return 0
+    for tweet in tweets["statuses"]:
+        print(tweet["text"])
+        print(
+            f'=> https://twitter.com/{tweet["user"]["screen_name"]}/status/{tweet["id_str"]}'
+        )
+        print("-" * 80)
+
+    write_since_id(tweets["statuses"][0]["id_str"])
+    return 0
+
+
+if __name__ == "__main__":
+    exit(main())

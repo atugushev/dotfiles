@@ -27,6 +27,7 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax enable
+set scrolloff=2 " Keep two lines visible above/below the cursor when scrolling.
 
 " Search options
 set incsearch " show where the pattern while typing

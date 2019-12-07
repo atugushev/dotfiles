@@ -14,10 +14,6 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 . $HOME/.bash_aliases
 . $HOME/.bash_functions
 
-# Powerline
-powerline-daemon -q
-. /usr/local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
-
 # Iterm2 shell imtergration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
@@ -26,6 +22,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # My binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -51,3 +48,10 @@ bind '"\e[5C": forward-word'
 bind '"\e[5D": backward-word'
 bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
+
+# Unlimited hisrtory size
+HISTSIZE=-1
+HISTFILESIZE=-1
+
+
+eval "$(starship init bash)"

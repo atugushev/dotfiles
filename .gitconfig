@@ -12,6 +12,7 @@
 [core]
     autocrlf = input
     attributesfile = ~/.gitattributes
+    excludesfile = /Users/albert/.gitignore
 [push]
     default = current
 [merge "pofile"]

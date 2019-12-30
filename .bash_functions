@@ -47,6 +47,13 @@ git-switch() {
 
 }
 
+git-co-pr() {
+    branch=pr/$1
+    git fetch -fu upstream refs/pull/$1/head:$branch
+    git checkout $branch
+    git reset --hard @
+}
+
 tvenv() {
     tmpdir=`mktemp -d`
     cd $tmpdir

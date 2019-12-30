@@ -11,7 +11,3 @@ fi
 
 # Activate theme on iTerm2
 echo -ne "\033]50;SetProfile=$CURRENT_THEME\a"
-
-# Activate themeon Powerline
-rm -f ~/.config/powerline/colorschemes/default.json
-cp ~/.config/powerline/colorschemes/default.json.$CURRENT_THEME ~/.config/powerline/colorschemes/default.json

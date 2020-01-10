@@ -2,7 +2,8 @@
 . ~/.theme/activate.sh
 
 # Bash completion
-. /usr/local/share/bash-completion/bash_completion
+[ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
+[ -f /etc/profile.d/bash_completion.sh ] && . /etc/profile.d/bash_completion.sh
 
 # Personal important envs
 export EDITOR=/usr/bin/vim

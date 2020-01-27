@@ -58,6 +58,7 @@ alias cdpt='cdp pip-tools'
 alias cdpp='cdp pip'
 alias cdd='cd ~/Downloads'
 alias cdk='cd ~/Desktop'
+alias cdw='cd ~/Work'
 
 
 #
@@ -146,11 +147,11 @@ complete -F _complete_alias pytest
 #
 # Docker
 #
-alias dp27='docker run --rm -it python:2.7 /bin/bash'
-alias dp35='docker run --rm -it python:3.5 /bin/bash'
-alias dp36='docker run --rm -it python:3.6 /bin/bash'
-alias dp37='docker run --rm -it python:3.7 /bin/bash'
-alias dp38='docker run --rm -it python:3.8 /bin/bash'
+alias dp27='docker run --rm -it python:2.7-slim /bin/bash'
+alias dp35='docker run --rm -it python:3.5-slim /bin/bash'
+alias dp36='docker run --rm -it python:3.6-slim /bin/bash'
+alias dp37='docker run --rm -it python:3.7-slim /bin/bash'
+alias dp38='docker run --rm -it python:3.8-slim /bin/bash'
 
 
 #

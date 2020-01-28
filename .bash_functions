@@ -57,5 +57,5 @@ git-co-pr() {
 tvenv() {
     tmpdir=`mktemp -d`
     cd $tmpdir
-    virtualenv $tmpdir/.venv --python=/usr/local/bin/python3.7 && a
+    venv
 }

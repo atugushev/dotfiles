@@ -54,8 +54,14 @@ git-co-pr() {
     git reset --hard @
 }
 
+tmpdir() {
+    dir=`mktemp -d`
+    cd $dir
+}
+
 tvenv() {
-    tmpdir=`mktemp -d`
-    cd $tmpdir
-    venv
+    tmpdir
+    ver=$1
+    eval venv$ver
+
 }

@@ -130,6 +130,8 @@ complete -f _complete_alias ups
 alias gg='git grep'
 complete -f _complete_alias gg
 
+alias rst='git restore --staged'
+complete -f _complete_alias rst
 
 #
 # Development
@@ -152,6 +154,7 @@ alias dp35='docker run --rm -it python:3.5-slim /bin/bash'
 alias dp36='docker run --rm -it python:3.6-slim /bin/bash'
 alias dp37='docker run --rm -it python:3.7-slim /bin/bash'
 alias dp38='docker run --rm -it python:3.8-slim /bin/bash'
+alias d-c='docker-compose'; complete -f _complete_alias rst
 
 
 #

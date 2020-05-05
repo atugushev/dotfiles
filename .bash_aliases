@@ -147,6 +147,17 @@ alias pc='qa'
 alias tt='pytest --disable-warnings'
 complete -F _complete_alias pytest
 
+# Tox
+alias t27='tox -e py27'
+complete -F _complete_alias t27
+alias t35='tox -e py35'
+complete -F _complete_alias t35
+alias t36='tox -e py36'
+complete -F _complete_alias t36
+alias t37='tox -e py37'
+complete -F _complete_alias t37
+alias t38='tox -e py38'
+complete -F _complete_alias t38
 
 #
 # Docker

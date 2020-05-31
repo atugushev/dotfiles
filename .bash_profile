@@ -1,8 +1,10 @@
 # Activate current theme
 . ~/.theme/activate.sh
 
-# Bash completion
+# Local config
 [[ -r ~/.bash_local ]] && . ~/.bash_local
+
+# Bash completion
 [[ -r ~/.bash_completion ]] && . ~/.bash_completion
 
 # Personal important envs
@@ -11,6 +13,9 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export HISTCONTROL=ignoredups
 export PYTHONSTARTUP=~/.pythonstartup.py
+export PIP_REQUIRE_VIRTUALENV=true
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
 
 . $HOME/.bash_aliases
 . $HOME/.bash_functions

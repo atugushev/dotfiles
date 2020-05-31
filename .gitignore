@@ -1,2 +1,5 @@
 .venv
 .tox
+*.swp
+*.egg-info
+.eggs

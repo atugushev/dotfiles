@@ -26,9 +26,17 @@ gh-issue(){
 
 activate(){
     if [ -e ".venv/bin/activate" ]; then
+        echo "Activate venv ..."
         . .venv/bin/activate
-    elif [ -e ".tox/.venv/bin/activate" ]; then
-        . .tox/.venv/bin/activate
+    elif [ -e "venv/bin/activate" ]; then
+        echo "Activate venv ..."
+        . venv/bin/activate
+    elif [ -e "poetry.lock" ]; then
+        echo "Activate poetry venv ..."
+        poetry-activate
+    elif [ -e "Pipfile.lock" ]; then
+        echo "Activate pipenv venv ..."
+        pipenv-activate
     fi
 }
 
@@ -64,4 +72,13 @@ tvenv() {
     ver=$1
     eval venv$ver
 
+}
+
+gr(){
+    num=$*
+    if [[ -z "$num" ]] ; then
+        echo "Usage: gr [number]"
+        return 1
+    fi
+    git rebase -i head~$num
 }

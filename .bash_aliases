@@ -10,6 +10,17 @@ alias rr='. ~/.bash_profile'
 alias g='google'
 alias i='ipython'
 alias i3='ipython3'
+alias mm='mutmut'
+alias bc='bc -l'
+
+
+#
+# Typo aliases
+#
+alias vmi='vim'
+alias imv='vim'
+alias gti='git'
+alias tgi='git'
 
 
 #
@@ -24,6 +35,8 @@ alias venv36='virtualenv .venv --python python3.6 && a'
 alias venv37='virtualenv .venv --python python3.7 && a'
 alias venv38='virtualenv .venv --python python3.8 && a'
 alias pipenv-activate='. $(pipenv --venv)/bin/activate'
+alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{print \$3}"'
+alias poetry-activate='. $(poetry-venv)/bin/activate'
 
 
 #
@@ -70,6 +83,7 @@ alias cl='git clone'
 alias m='git checkout master'
 alias cleanup='git clean -fxfd'
 alias gls='git ls-files'
+alias gsu='git submodule update'
 
 # List of branches
 alias brl="git for-each-ref --sort=-committerdate refs/remotes/origin --format='%(color:yellow)%(refname:lstrip=3)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
@@ -109,6 +123,7 @@ alias pss='git push origin $(git rev-parse --abbrev-ref HEAD)'
 alias pssf='git push origin -f $(git rev-parse --abbrev-ref HEAD)'
 
 alias pll='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias pllr='git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase'
 complete -F _complete_alias pll
 
 alias ss='git show'
@@ -138,7 +153,7 @@ complete -f _complete_alias rst
 #
 # Development
 #
-alias devenv='tox -e py37 --devenv .tox/.venv && a'
+alias devenv='tox -e py38 --devenv .venv && a'
 alias pytest='pytest --tb=native'
 alias tto='pytest -k "not network"'
 alias qa='pre-commit run --all-files'
@@ -162,12 +177,13 @@ complete -F _complete_alias t38
 #
 # Docker
 #
-alias dp27='docker run --rm -it python:2.7-slim /bin/bash'
-alias dp35='docker run --rm -it python:3.5-slim /bin/bash'
-alias dp36='docker run --rm -it python:3.6-slim /bin/bash'
-alias dp37='docker run --rm -it python:3.7-slim /bin/bash'
-alias dp38='docker run --rm -it python:3.8-slim /bin/bash'
+alias dp27='docker run --rm -it python:2.7 /bin/bash'
+alias dp35='docker run --rm -it python:3.5 /bin/bash'
+alias dp36='docker run --rm -it python:3.6 /bin/bash'
+alias dp37='docker run --rm -it python:3.7 /bin/bash'
+alias dp38='docker run --rm -it python:3.8 /bin/bash'
 alias d-c='docker-compose'; complete -f _complete_alias rst
+alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 
 
 #
@@ -182,3 +198,7 @@ alias light="echo light > ~/.theme/current && . ~/.theme/activate.sh"
 
 # Weather in current location
 alias wtr='curl -s wttr.in | head -17'
+
+
+alias k="kubectl --kubeconfig=/Users/albert/.kube/k3s.yaml"
+alias kd="k --namespace dev"

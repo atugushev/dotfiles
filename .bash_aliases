@@ -35,7 +35,7 @@ alias venv36='virtualenv .venv --python python3.6 && a'
 alias venv37='virtualenv .venv --python python3.7 && a'
 alias venv38='virtualenv .venv --python python3.8 && a'
 alias pipenv-activate='. $(pipenv --venv)/bin/activate'
-alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{print \$3}"'
+alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{printf(\"%s/bin/python\", \$3)}"'
 alias poetry-activate='. $(poetry-venv)/bin/activate'
 
 
@@ -43,13 +43,8 @@ alias poetry-activate='. $(poetry-venv)/bin/activate'
 # System
 #
 alias listen='sudo lsof -i -n -P | grep TCP | grep LISTEN'
-complete -F _complete_alias listen
-
 alias sshp='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
-complete -F _complete_alias sshp
-
 alias grep='grep -I'
-complete -f _complete_alias grep
 
 # Colorize ls
 alias ls='ls -G'
@@ -60,9 +55,7 @@ alias ls='ls -G'
 #
 alias rand='openssl rand -base64 32| head -c'
 alias cdtmp='cd $(mktemp -d)'
-
 alias ff='find . -not -path "*/\.*" -name'
-complete -f _complete_alias ff
 
 
 #
@@ -93,62 +86,28 @@ alias grs='git rebase --skip'
 alias gra='git rebase --abort'
 
 alias ci='git commit'
-complete -F _complete_alias ci
-
 alias cia='git commit --amend'
-complete -F _complete_alias cia
-
 alias amend='git commit --amend -am'
-complete -F _complete_alias amend
-
 alias co='git checkout'
-complete -F _complete_alias co
-
 alias st='git status'
-complete -F _complete_alias st
-
 alias br='git branch'
-complete -F _complete_alias br
-
 alias dff='git diff'
-complete -F _complete_alias dff
-
 alias dffc='git diff --cached'
-complete -F _complete_alias dffc
-
 alias add='git add'
-complete -F _complete_alias add
-
 alias pss='git push origin $(git rev-parse --abbrev-ref HEAD)'
 alias pssf='git push origin -f $(git rev-parse --abbrev-ref HEAD)'
 
 alias pll='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias pllr='git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase'
-complete -F _complete_alias pll
-
 alias ss='git show'
-complete -F _complete_alias ss
-
 alias mrg='git merge --no-ff'
-complete -F _complete_alias mrg
-
 alias ll='git log --patch-with-stat'
-complete -F _complete_alias ll
-
 alias gl='git log'
-complete -f _complete_alias gl
-
 alias gll='git log --oneline --decorate --graph'
-complete -f _complete_alias gll
-
 alias ups='git pull upstream $(git rev-parse --abbrev-ref HEAD)'
-complete -f _complete_alias ups
-
 alias gg='git grep'
-complete -f _complete_alias gg
-
 alias rst='git restore --staged'
-complete -f _complete_alias rst
+
 
 #
 # Development
@@ -158,21 +117,14 @@ alias pytest='pytest --tb=native'
 alias tto='pytest -k "not network"'
 alias qa='pre-commit run --all-files'
 alias pc='qa'
-
 alias tt='pytest --disable-warnings'
-complete -F _complete_alias pytest
 
 # Tox
 alias t27='tox -e py27'
-complete -F _complete_alias t27
 alias t35='tox -e py35'
-complete -F _complete_alias t35
 alias t36='tox -e py36'
-complete -F _complete_alias t36
 alias t37='tox -e py37'
-complete -F _complete_alias t37
 alias t38='tox -e py38'
-complete -F _complete_alias t38
 
 #
 # Docker
@@ -182,7 +134,7 @@ alias dp35='docker run --rm -it python:3.5 /bin/bash'
 alias dp36='docker run --rm -it python:3.6 /bin/bash'
 alias dp37='docker run --rm -it python:3.7 /bin/bash'
 alias dp38='docker run --rm -it python:3.8 /bin/bash'
-alias d-c='docker-compose'; complete -f _complete_alias rst
+alias d-c='docker-compose'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 
 

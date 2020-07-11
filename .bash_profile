@@ -1,9 +1,6 @@
 # Activate current theme
 . ~/.theme/activate.sh
 
-# Local config
-[[ -r ~/.bash_local ]] && . ~/.bash_local
-
 # Bash completion
 [[ -r ~/.bash_completion ]] && . ~/.bash_completion
 
@@ -56,3 +53,6 @@ bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
 
 eval "$(starship init bash)"
+
+# Local config
+[[ -r ~/.bash_local ]] && . ~/.bash_local

@@ -35,7 +35,8 @@ alias venv36='virtualenv .venv --python python3.6 && a'
 alias venv37='virtualenv .venv --python python3.7 && a'
 alias venv38='virtualenv .venv --python python3.8 && a'
 alias pipenv-activate='. $(pipenv --venv)/bin/activate'
-alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{printf(\"%s/bin/python\", \$3)}"'
+alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{print \$3}"'
+alias poetry-python='echo $(poetry-venv)/bin/python'
 alias poetry-activate='. $(poetry-venv)/bin/activate'
 
 
@@ -136,6 +137,7 @@ alias dp37='docker run --rm -it python:3.7 /bin/bash'
 alias dp38='docker run --rm -it python:3.8 /bin/bash'
 alias d-c='docker-compose'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
+alias docker-stop-all='docker stop $(docker ps -q | awk "{print \$1}")'
 
 
 #

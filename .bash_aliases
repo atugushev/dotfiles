@@ -78,6 +78,8 @@ alias m='git checkout master'
 alias cleanup='git clean -fxfd'
 alias gls='git ls-files'
 alias gsu='git submodule update'
+alias gsur='git submodule update --remote'
+alias gsi='git submodule init'
 
 # List of branches
 alias brl="git for-each-ref --sort=-committerdate refs/remotes/origin --format='%(color:yellow)%(refname:lstrip=3)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"

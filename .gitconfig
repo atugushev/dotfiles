@@ -20,10 +20,11 @@
     driver = git-po-merge %A %O %B
 [pull]
     default = current
+    rebase = true
 [diff]
     noprefix = true
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f

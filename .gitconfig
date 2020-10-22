@@ -11,7 +11,7 @@
     pss = push
 [core]
     autocrlf = input
-    attributesfile = ~/.gitattributes
+    attributesfile = /Users/albert/.gitattributes
     excludesfile = /Users/albert/.gitignore
 [push]
     default = current

@@ -3,3 +3,5 @@
 *.swp
 *.egg-info
 .eggs
+*.local.*
+.idea

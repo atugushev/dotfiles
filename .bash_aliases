@@ -76,7 +76,7 @@ alias cdw='cd ~/Work'
 #
 alias sw='git-switch'
 alias cl='git clone'
-alias m='git checkout master'
+alias m='git switch $(git branch --list master main --format="%(refname:short)")'
 alias cleanup='git clean -fxfd'
 alias gls='git ls-files'
 alias gsu='git submodule update'
@@ -156,7 +156,3 @@ alias light="echo light > ~/.theme/current && . ~/.theme/activate.sh"
 
 # Weather in current location
 alias wtr='curl -s wttr.in | head -17'
-
-
-alias k="kubectl --kubeconfig=/Users/albert/.kube/k3s.yaml"
-alias kd="k --namespace dev"

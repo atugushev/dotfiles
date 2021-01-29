@@ -14,6 +14,7 @@ alias mm='mutmut'
 alias bc='bc -l'
 alias p='python3'
 alias bs='brew services'
+alias pip='python -m pip'
 
 
 #

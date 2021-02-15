@@ -3,7 +3,7 @@
 # export PYTHONSTARTUP=~/.pythonstartup.py
 
 import collections
-import datetime
+from datetime import datetime
 import functools
 import itertools
 import math

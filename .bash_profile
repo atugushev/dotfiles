@@ -1,6 +1,3 @@
-# Activate current theme
-. ~/.theme/activate.sh
-
 # Bash completion
 [[ -r ~/.bash_completion ]] && . ~/.bash_completion
 

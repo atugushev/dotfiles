@@ -38,16 +38,15 @@ set hlsearch " highlight all its matches
 "  * [c] - Auto-wrap comments using textwidth, inserting the current comment
 set formatoptions=tc
 
-" Switch the currwnt theme
-let theme = $CURRENT_THEME
-if theme == "light"
-    colorscheme tango
-    set background=light
-    let g:airline_theme='silver'
-else
+" Switch to dark or light theme
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
     set background=dark
     colorscheme iceberg
     let g:airline_theme='distinguished'
+else
+    colorscheme tango
+    set background=light
+    let g:airline_theme='silver'
 endif
 
 " Mark as red unneeded whitespaces

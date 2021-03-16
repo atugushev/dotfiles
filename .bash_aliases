@@ -145,13 +145,6 @@ alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 alias docker-stop-all='docker stop $(docker ps -q | awk "{print \$1}")'
 
 
-#
-# Theme
-#
-alias dark="echo dark > ~/.theme/current && . ~/.theme/activate.sh"
-alias light="echo light > ~/.theme/current && . ~/.theme/activate.sh"
-
-
 # Misc
 #
 

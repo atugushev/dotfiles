@@ -31,11 +31,13 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
+    export PATH="/Users/albert/.pyenv/shims:${PATH}"
+    eval "$(pyenv init -)"
 fi
+
+# https://github.com/pyenv/pyenv/wiki#how-to-build-cpython-with-framework-support-on-os-x
+PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 # Install Ruby Gems on Mac OS X without sudo
 # https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html

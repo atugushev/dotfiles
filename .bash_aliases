@@ -12,9 +12,13 @@ alias i='ipython'
 alias i3='ipython3'
 alias mm='mutmut'
 alias bc='bc -l'
-alias p='python3'
+alias tree='tree -C'
+alias p='poetry run python'
 alias bs='brew services'
 alias pip='python -m pip'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 
 #
@@ -38,9 +42,10 @@ alias venv36='virtualenv .venv --python python3.6 && a'
 alias venv37='virtualenv .venv --python python3.7 && a'
 alias venv38='virtualenv .venv --python python3.8 && a'
 alias pipenv-activate='. $(pipenv --venv)/bin/activate'
-alias poetry-venv='poetry show -v | grep "Using virtualenv:" | awk "{print \$3}"'
+alias poetry-venv='poetry env info -p'
 alias poetry-python='echo $(poetry-venv)/bin/python'
 alias poetry-activate='. $(poetry-venv)/bin/activate'
+alias disable-virtualenv-requirement='unset PIP_REQUIRE_VIRTUALENV'
 
 
 #
@@ -76,7 +81,7 @@ alias cdw='cd ~/Work'
 # Git
 #
 alias sw='git-switch'
-alias cl='git clone'
+alias cl='git clone --recurse-submodules -j8'
 alias m='git switch $(git branch --list master main --format="%(refname:short)")'
 alias cleanup='git clean -fxfd'
 alias gls='git ls-files'
@@ -93,6 +98,7 @@ alias gra='git rebase --abort'
 
 alias ci='git commit'
 alias cia='git commit --amend'
+alias cian='git commit --amend --no-edit'
 alias amend='git commit --amend -am'
 alias co='git checkout'
 alias st='git status'

@@ -496,7 +496,7 @@
   "Columns" : 80,
   "Visual Bell" : true,
   "ASCII Ligatures" : true,
-  "Custom Directory" : "No",
+  "Custom Directory" : "Recycle",
   "Ansi 5 Color" : {
     "Red Component" : 0.79022186994552612,
     "Color Space" : "sRGB",

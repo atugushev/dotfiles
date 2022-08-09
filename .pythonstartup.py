@@ -8,12 +8,13 @@ import functools
 import itertools
 import math
 import os
+import pathlib
 import pprint
 import re
 import sys
 import time
 
-print("(imported collections, datetime, functools, itertools, math, os, pprint, re, sys, time)")
+print("(imported collections, datetime, functools, itertools, math, os, pathlib, pprint, re, sys, time)")
 
 pp = pprint.pprint
 

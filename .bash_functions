@@ -82,3 +82,8 @@ gr(){
     fi
     git rebase -i head~$num
 }
+
+lc() {
+    last_command=$(fc -nl -1 | awk '{print $1}')
+    eval "$last_command $@"
+}

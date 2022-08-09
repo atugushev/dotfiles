@@ -3,7 +3,6 @@ call plug#begin()
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
-Plug 'davidhalter/jedi-vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/vim-color-forest-night'
 Plug 'cocopon/iceberg.vim'
@@ -69,10 +68,8 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let g:airline#extensions#tagbar#flags = 'f'  " show full tag hierarchy
 nmap <F8> :TagbarToggle<CR>
 
-" Settings for jedi-vim
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = "<M-Space>"
-
 " show a visual line under the cursor's current line
 set cursorline
+
+" backspace over everything in insert mode
+set backspace=indent,eol,start

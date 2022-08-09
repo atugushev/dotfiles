@@ -16,42 +16,26 @@
                 },
                 "rules": [
                     {
-                        "description": "Change right_shift + left_shift to caps_lock",
                         "manipulators": [
                             {
+                                "description": "Cmd+Tab to Option+Tab",
                                 "from": {
-                                    "key_code": "left_shift",
+                                    "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_shift"
+                                            "left_command"
                                         ],
                                         "optional": [
-                                            "caps_lock"
+                                            "any"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "left_option"
                                         ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "caps_lock"
                                     }
                                 ],
                                 "type": "basic"

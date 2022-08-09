@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 export HISTCONTROL=ignoredups
 export PYTHONSTARTUP=~/.pythonstartup.py
 export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DISABLE_PIP_VERSION_CHECK=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 
@@ -22,7 +23,6 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # My binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -51,7 +51,11 @@ bind '"\e[5D": backward-word'
 bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
 
+# Starship shell prompt
 eval "$(starship init bash)"
+
+# Rust
+. "$HOME/.cargo/env"
 
 # Local config
 [[ -r ~/.bash_local ]] && . ~/.bash_local

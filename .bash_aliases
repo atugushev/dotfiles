@@ -35,7 +35,7 @@ alias tgi='git'
 #
 alias a='activate'
 alias d='deactivate'
-alias venv='virtualenv .venv --python python3.8 && a'
+alias venv='virtualenv .venv && a'
 alias venv27='virtualenv .venv --python python2.7 && a'
 alias venv35='virtualenv .venv --python python3.5 && a'
 alias venv36='virtualenv .venv --python python3.6 && a'
@@ -82,10 +82,10 @@ alias cdw='cd ~/Work'
 #
 alias sw='git-switch'
 alias cl='git clone --recurse-submodules -j8'
-alias m='git switch $(git branch --list master main --format="%(refname:short)")'
+alias m='git switch $(git branch --list main master --format="%(refname:short)" | head -1)'
 alias cleanup='git clean -fxfd'
 alias gls='git ls-files'
-alias gsu='git submodule update'
+alias gsu='git submodule update --init --recursive'
 alias gsur='git submodule update --remote'
 alias gsi='git submodule init'
 
@@ -118,7 +118,7 @@ alias ll='git log --patch-with-stat'
 alias gl='git log'
 alias gll='git log --oneline --decorate --graph'
 alias ups='git pull upstream $(git rev-parse --abbrev-ref HEAD)'
-alias gg='git grep'
+alias gg='git grep -n'
 alias rst='git restore --staged'
 
 
@@ -130,7 +130,7 @@ alias pytest='pytest --tb=native'
 alias tto='pytest -k "not network"'
 alias qa='pre-commit run --all-files'
 alias pc='qa'
-alias tt='pytest --disable-warnings'
+alias tt='pytest --disable-warnings -n0'
 
 # Tox
 alias t27='tox -e py27'
@@ -142,13 +142,14 @@ alias t38='tox -e py38'
 #
 # Docker
 #
-alias dp27='docker run --rm -it python:2.7 /bin/bash'
-alias dp35='docker run --rm -it python:3.5 /bin/bash'
-alias dp36='docker run --rm -it python:3.6 /bin/bash'
-alias dp37='docker run --rm -it python:3.7 /bin/bash'
-alias dp38='docker run --rm -it python:3.8 /bin/bash'
-alias dp39='docker run --rm -it python:3.9 /bin/bash'
-alias dp310='docker run --rm -it python:3.10 /bin/bash'
+alias dp27='docker run -h py27 --rm -it python:2.7 /bin/bash'
+alias dp35='docker run -h py35 --rm -it python:3.5 /bin/bash'
+alias dp36='docker run -h py36 --rm -it python:3.6 /bin/bash'
+alias dp37='docker run -h py37 --rm -it python:3.7 /bin/bash'
+alias dp38='docker run -h py38 --rm -it python:3.8 /bin/bash'
+alias dp39='docker run -h py39 --rm -it python:3.9 /bin/bash'
+alias dp310='docker run -h py310 --rm -it python:3.10 /bin/bash'
+alias dp311='docker run -h py311 --rm -it python:3.11 /bin/bash'
 alias d-c='docker-compose'
 alias docker-cleanup-images='docker rmi $(docker images -f "dangling=true" -q)'
 alias docker-stop-all='docker stop $(docker ps -q | awk "{print \$1}")'
@@ -159,3 +160,4 @@ alias docker-stop-all='docker stop $(docker ps -q | awk "{print \$1}")'
 
 # Weather in current location
 alias wtr='curl -s wttr.in | head -17'
+alias xargs='xargs ' # aliased commands passed to xargs will be expanded

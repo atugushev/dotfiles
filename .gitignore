@@ -6,3 +6,6 @@
 *.local.*
 .idea
 htmlcov/
+.python-version
+docker-compose.override.yml
+*.pyc

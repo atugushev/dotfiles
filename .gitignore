@@ -9,3 +9,4 @@ htmlcov/
 .python-version
 docker-compose.override.yml
 *.pyc
+.coverage

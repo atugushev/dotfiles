@@ -32,10 +32,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # pyenv setup
-if command -v pyenv 1>/dev/null 2>&1; then
-    export PATH="/Users/albert/.pyenv/shims:${PATH}"
-    eval "$(pyenv init -)"
-fi
+# if command -v pyenv 1>/dev/null 2>&1; then
+#    export PATH="/Users/albert/.pyenv/shims:${PATH}"
+#    eval "$(pyenv init -)"
+#fi
 
 # https://github.com/pyenv/pyenv/wiki#how-to-build-cpython-with-framework-support-on-os-x
 PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -60,3 +60,6 @@ eval "$(starship init bash)"
 
 # Local config
 [[ -r ~/.bash_local ]] && . ~/.bash_local
+eval "$(rtx activate bash)"
+
+export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo

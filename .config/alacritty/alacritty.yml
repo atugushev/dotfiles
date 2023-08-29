@@ -1,0 +1,68 @@
+import:
+  - ~/.config/alacritty/theme/dracula.yaml
+
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 250
+    lines: 85
+
+  position:
+    x: 0
+    y: 0
+
+  padding:
+    x: 6
+    y: 0
+
+  decorations: buttonless
+  startup_mode: Maximized
+  title: Alacritty
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 5000
+  multiplier: 3
+  auto_scroll: true
+
+tabspaces: 4
+
+font:
+  normal:
+    family: MesloLGL Nerd Font
+    style: Regular
+
+  bold:
+    family: MesloLGL Nerd Font
+    style: Bold
+
+  italic:
+    family: MesloLGL Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: MesloLGL Nerd Font
+    style: Bold Italic
+
+
+  size: 14.0
+
+  offset:
+    x: 1
+    y: 1
+
+  glyph_offset:
+    x: 1
+    y: 1
+
+draw_bold_text_with_bright_colors: true
+
+selection:
+  save_to_clipboard: true
+
+live_config_reload: true

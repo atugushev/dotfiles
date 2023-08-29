@@ -1,0 +1,109 @@
+theme = "dracula"
+
+[editor]
+cursorline = true
+line-number = "relative"
+mouse = true
+auto-save = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+# Quick iteration on config changes
+C-r = ":config-reload"
+
+# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+"C-c" = ["keep_primary_selection", "collapse_selection", "normal_mode"]
+"K" = "toggle_comments"
+
+# Muscle memory
+Z = { Z = ":wq" } # ZZ
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
+"%" = "match_brackets"
+V = ["select_mode", "extend_to_line_bounds"]
+C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
+D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
+A = ["goto_line_end", "insert_mode", "move_char_right"]
+
+# Clipboards over registers ye ye
+x = "delete_selection"
+p = ["paste_clipboard_after", "collapse_selection"]
+P = ["paste_clipboard_before", "collapse_selection"]
+# Would be nice to add ya and yi, but the surround commands can't be chained
+Y = ["extend_to_line_end", "yank_main_selection_to_clipboard", "collapse_selection"]
+
+[keys.insert]
+# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+"C-c" = ["collapse_selection", "normal_mode"]
+
+
+[keys.select]
+"C-c" = ["normal_mode", "keep_primary_selection", "collapse_selection"]
+"K" = "toggle_comments"
+
+# Muscle memory
+"{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
+"}" = ["extend_to_line_bounds", "goto_next_paragraph"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
+D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
+C = ["goto_line_start", "extend_to_line_bounds", "change_selection"]
+"%" = "match_brackets"
+S = "surround_add" # Basically 99% of what I use vim-surround for
+u = ["switch_to_lowercase", "collapse_selection", "normal_mode"]
+U = ["switch_to_uppercase", "collapse_selection", "normal_mode"]
+
+
+# Clipboards over registers ye ye
+d = ["yank_main_selection_to_clipboard", "delete_selection"]
+x = ["yank_main_selection_to_clipboard", "delete_selection"]
+y = ["yank_main_selection_to_clipboard", "normal_mode", "flip_selections", "collapse_selection"]
+Y = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "goto_line_start", "collapse_selection", "normal_mode"]
+p = "replace_selections_with_clipboard" # No life without this
+P = "paste_clipboard_before"
+
+
+[keys.normal.d]
+d = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "delete_selection"]
+
+[keys.normal.c]
+w = ["delete_word_forward", "insert_mode"]
+
+[keys.normal.y]
+y = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "normal_mode", "collapse_selection"]
+
+[keys.normal.space]
+"space" = "buffer_picker"
+
+[editor.lsp]
+auto-signature-help = false
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "position", "position-percentage", "file-encoding", "spacer"]
+center = ["version-control"]
+
+# Based on helix-vim

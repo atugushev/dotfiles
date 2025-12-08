@@ -19,26 +19,11 @@ export DOCKER_BUILDKIT=1
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Application paths
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 
 # My binaries
 export PATH="$HOME/.local/bin:$PATH"
-
-# Console scripts installed by pip3 --user
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
-
-# pyenv setup
-# if command -v pyenv 1>/dev/null 2>&1; then
-#    export PATH="/Users/albert/.pyenv/shims:${PATH}"
-#    eval "$(pyenv init -)"
-#fi
-
-# https://github.com/pyenv/pyenv/wiki#how-to-build-cpython-with-framework-support-on-os-x
-PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 # Install Ruby Gems on Mac OS X without sudo
 # https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
@@ -53,13 +38,15 @@ bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
 
 # Starship shell prompt
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 # Rust
 . "$HOME/.cargo/env"
 
 # Local config
 [[ -r ~/.bash_local ]] && . ~/.bash_local
-eval "$(rtx activate bash)"
+#eval "$(rtx activate bash)"
 
 export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+#export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+unset NO_COLOR

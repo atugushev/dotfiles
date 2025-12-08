@@ -1,0 +1,39 @@
+{
+  "env": {},
+  "permissions": {
+    "allow": [
+      "Bash(timeout:*)",
+      "Bash(gh:*)",
+      "Bash(nox:*)",
+      "Bash(find:*)",
+      "Bash(git:*)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/osascript -e \"display notification 'Awaiting your input' with title 'Claude Code'\""
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // \"Claude\"'); dir=$(echo \"$input\" | jq -r '.workspace.current_dir // \"\"'); dir_name=$([ -n \"$dir\" ] && basename \"$dir\" || echo \"\"); git_branch=\"\"; if [ -n \"$dir\" ] && ([ -d \"$dir/.git\" ] || git -C \"$dir\" rev-parse --git-dir >/dev/null 2>&1); then git_branch=$(git -C \"$dir\" -c core.filemode=false -c advice.detachedHead=false branch --show-current 2>/dev/null || echo \"\"); fi; CYAN='\\033[36m'; GREEN='\\033[32m'; BLUE='\\033[34m'; RESET='\\033[0m'; left_side=\"\"; left_plain=\"\"; if [ -n \"$dir_name\" ]; then left_side=\"${CYAN}${dir_name}${RESET}\"; left_plain=\"$dir_name\"; if [ -n \"$git_branch\" ]; then left_side=\"${left_side} on ${GREEN}${git_branch}${RESET}\"; left_plain=\"${left_plain} on ${git_branch}\"; fi; fi; right_side=\"${BLUE}Sonnet 4.5${RESET}\"; right_plain=\"Sonnet 4.5\"; term_width=${COLUMNS:-80}; left_len=${#left_plain}; right_len=${#right_plain}; total_len=$((left_len + right_len)); if [ $total_len -lt $term_width ]; then padding=$((term_width - total_len)); printf \"%b%${padding}s%b\\n\" \"$left_side\" \"\" \"$right_side\"; else printf \"%b %b\\n\" \"$left_side\" \"$right_side\"; fi"
+  },
+  "alwaysThinkingEnabled": true
+}
